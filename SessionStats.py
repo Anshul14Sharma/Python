@@ -22,9 +22,9 @@ if not os.path.exists(os.path.dirname(filepath)):
         if exc.errno != errno.EEXIST:
             raise
 connection = pymysql.connect(host='virgoinnovation.com',
-                         user='dbuser',
-                         password='Dbuser123',                             
-                         db='vega1',
+                         user='----',
+                         password='-----',                             
+                         db='----',
                          charset='utf8mb4',
                          cursorclass=pymysql.cursors.DictCursor)
 print ("connect successful!!")
@@ -66,28 +66,11 @@ def plot(df, columns, name):
 	plotly.offline.plot(fig1, filename=filepath+'/'+name+'.html',auto_open=False)
 	fichier_html_graphs.write("<object data=\""+name+'.html'+"\" width=\"550\" height=\"500\"></object>"+"\n")
 
-'''def subplot(df, columns, name,nomen, length):
-	j=0
-	fig = tools.make_subplots(rows=length, cols=1, subplot_titles= columns)
-	for i in columns:
-		trace1 = go.Scatter(x=df['createdDT'], y=df[i], name = i)
-		fig.append_trace(trace1, j+1, 1)
-		j = j + 1
-
-	fig['layout'].update(height=2500, width=700, title=str(userId)+' '+nomen)
-	plotly.offline.plot(fig, filename= str(userId)+nomen+'.html',auto_open=True)
-	fichier_html_graphs.write("<object data=\""+str(userId)+nomen+'.html'+"\" width=\"650\" height=\"650\"></object>"+"\n")
-	'''
-#df = createDF_showinfo(filename)
-
 key = df.sessKey.unique()
-#userId = int(input("Enter user id\n"))
 userId = df.sessUserId.unique()
 pt = df.name.unique()
 fichier_html_graphs=open(filepath+'/'+'GlassSide.html','w')
 fichier_html_graphs.write("<html><head></head><body>"+"\n")
-#host  = int(input("Is host?\n"))
-#glassuser = int(input("Is GlassUser?\n"))
 good_columns=[
 	#"inboundrtp_bytesReceived",
 	#"outboundrtp_bytesSent",
@@ -102,7 +85,6 @@ good_columns=[
 	#"packetsReceived",
 	"googJitterBufferMs"
 	]
-#good_columns = ["audioOutputLevel"]	
 
 
 def complete(pt,ptType, df_filter_1, df_filter_2):
