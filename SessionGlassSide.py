@@ -10,28 +10,6 @@ import plotly.graph_objs as go
 from plotly import tools
 from collections import defaultdict
 import datetime as dt
-import re
-#re1 = '(\\d+)' 
-#param1 = re.compile("RTCInboundRTPAudioStream_"+re1+"_inbound-rtp_packetsReceived",re.IGNORECASE|re.DOTALL)
-#param2 = re.compile("RTCInboundRTPAudioStream_"+re1+"_inbound-rtp_jitter",re.IGNORECASE|re.DOTALL)
-#param3 = re.compile("RTCInboundRTPAudioStream_"+re1+"_inbound-rtp_bytesReceived",re.IGNORECASE|re.DOTALL)
-#param4 = re.compile("RTCOutboundRTPAudioStream_"+re1+"_outbound-rtp_packetsSent",re.IGNORECASE|re.DOTALL)
-#param5 = re.compile("RTCOutboundRTPAudioStream_"+re1+"_outbound-rtp_bytesSent",re.IGNORECASE|re.DOTALL)
-
-'''def plot(df):
-	df.set_index("createdDT")
-	plt.ion()
-	fig, ax = plt.subplots()
-	while True:
-	    dframe = df.copy()
-	    dframe['createdDT'] = pd.to_datetime(dframe['createdDT']) + pd.DateOffset(minutes = 20)
-	    dframe = dframe.set_index('createdDT')
-	    end = dframe.index.max()
-	    start= end.to_datetime() - dt.timedelta(minutes=20)
-	    dframe = dframe.loc[start:end]
-	    ax.plot_date(dframe.index.to_pydatetime(), dframe, marker='', linestyle='solid')
-	    plt.pause(0.01)
-	    '''
 
 sessionKey = input("Enter the session Key\n")
 filepath = str(sessionKey) + '/'
@@ -44,8 +22,8 @@ if not os.path.exists(os.path.dirname(filepath)):
 
 
 connection = pymysql.connect(host='virgoinnovation.com',
-                         user='dbuser',
-                         password='Dbuser123',                             
+                         user='-----',
+                         password='-----',                             
                          db='vega1',
                          charset='utf8mb4',
                          cursorclass=pymysql.cursors.DictCursor)
